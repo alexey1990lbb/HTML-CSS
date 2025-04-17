@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lists</title>
+    <style>
+        ol {
+            font-size: 25px;
+        }
+
+
+        ul {
+            font-size: 25px;
+            list-style-type: square;
+            list-style-position: outside;
+            background-color: aquamarine;
+        }
+
+
+        li {
+            background-color: aqua;
+        }
+
+        ol > li {
+            background-color: rgb(253, 56, 131);
+        }
+
+        #h2ol {
+            color: rgb(15, 185, 228);
+        }
+
+        .red-text {
+            color: rgb(255, 0, 0);
+        }
+
+        dd {
+            font-style: italic;
+        }
+
+        dl {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        dd {
+            font-weight: normal;
+            font-size: 25px;
+        }
+        
+        dt {
+            font-size: 25px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1 class="red-text">Списки HTML</h1>
+    <section>
+            <h2 id="h2ol">Нумерованный список (Order List)</h2>
+            <ol type="I" start="2">
+                <li>Элемент списка (List Item)</li>
+                <li>Элемент списка (List Item)</li>
+                <li>Элемент списка (List Item)</li>
+                <li>Элемент списка (List Item)</li>
+                <li>Элемент списка (List Item)</li>
+            </ol>
+    </section>
+    <section>
+        <h2>Ненумерованный список (Unordered List)</h2>
+        <ul>
+            <li>Элемент списка (List Item)</li>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam facere aliquam consectetur unde inventore sint distinctio molestiae voluptatem reiciendis porro error incidunt aliquid, cumque possimus obcaecati. Voluptate quod blanditiis error!</li>
+        </ul>
+</section>
+<section>
+    <h2 class="red-text">Нумерованный список (Order List) + Вложенный ненумерованный список (Unordered List)</h2>
+    <ol>
+        <li>Элемент списка (List Item)</li>
+            <ul style="list-style-type: circle;">
+                <li>Ненумерованный</li>
+                <li>Ненумерованный</li>
+            </ul>
+        <li>Элемент списка (List Item)</li>
+        <ul style="list-style-type: square;">
+            <li>Ненумерованный</li>
+            <li>Ненумерованный</li>
+    </ol>
+</section>
+<section>
+    <dl>Список описаний (Description Lists)</dl>
+    <dt>Чайник</dt>
+        <dd>для закипания воды</dd>
+    <dt>Кастрюля</dt>
+        <dd>для приготовления пищи</dd>
+</section>
+    </main>
+</body>
+</html>
