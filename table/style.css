@@ -1,0 +1,32 @@
+th {
+    border: 1px solid red;
+}
+td {
+    border: 1px solid blue;
+    /* отсутупы padding первое значение вверх\низ, второе значение влево\вправо, если указать 4 значение, то по часовой стрелке верх, справа, низ, влево */
+    padding: 0 20px;
+    /* background-color: bisque; */
+}
+table {
+    border: 1px solid black;
+    /* убирает отступы между ячейками "collapse" */
+    border-collapse: collapse; 
+    /* border-collapse: separate;*/
+    /* border-spacing: 10px; */
+    empty-cells: hide;
+}
+html {
+    font-size: 25px;
+}
+.col-1 {
+    background-color: brown;
+}
+.col-2 {
+    background-color: lightblue;
+}
+.col-3 {
+    background-color: rgb(54, 128, 44);
+}
+.col-4 {
+    background-color: rgb(1, 117, 138);
+}

@@ -1,0 +1,50 @@
+/* Рисуем таблицу, текст по центру, поменяем шрифт */
+table, th, td, tr {
+    border-collapse: collapse;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 1px solid black;
+    padding: 8px;
+}
+/* Объединим эти три тега с table */
+/* tr {
+    border: 1px solid black;
+}
+th {
+    border: 1px solid black;
+}
+td {
+    border: 1px solid black;
+    padding: 8px;
+} */
+ /* Зададим колонка цвет */
+.col-1, .col-2 {
+    background-color: #fff0a2;
+}
+.col-3 {
+    background-color: #d1d1ff;
+}
+.col-4 {
+    background-color: #ffc2c2;
+}
+.col-5 {
+    background-color: #b2ffd1;
+}
+.col-6 {
+    background-color: #ffc2ff;
+}
+/* Сделаем жирный шрифт для класса bold */
+.bold {
+    font-weight: bold;
+}
+/* Сделаем курсив для класса italic */
+.italic {
+    font-style: italic;
+    font-size: 12px;
+}
+/* Сделаем курсив + жирный текст для класса italic-b */
+.italic-b {
+    font-style: italic;
+    font-size: 12px;
+    font-weight: bold;
+}

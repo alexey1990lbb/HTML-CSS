@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <table>
+        <!-- Создадим классы для колонок -->
+        <colgroup>
+            <col class="col-1">
+            <col class="col-2">
+            <col class="col-3">
+            <col class="col-4">
+            <col class="col-5">
+            <col class="col-6">
+        </colgroup>
+        <!-- colspan объединяет нашу ячейку с правой ячейкой, число = кол-во объединенных ячеек -->
+        <!-- rowsan объединяет нашу ячейку с нижней ячейкой, число = кол-во объединенных ячеек -->
+        <!-- Класс bold - делает шрифт жирным -->
+        <!-- Класс italic делает шрифт курсивом -->
+        <!-- Класс italic-b делает шрифт жирным и курсивом -->
+        <!-- тег <b> делает символ жирным, без использования CSS -->
+        <!-- тег <sub> делает символ маленьким без использования CSS -->
+        <!-- тег <br> переносит строку -->
+        <tr>
+            <th colspan="2">ASPECT</th>
+            <th>SIMPLE</th>
+            <th>PROGRESSIVE</th>
+            <th>PERFECT</th>
+            <th>PERFECT <br>PROGRESSIVE</th>
+        </tr>
+        <tr>
+            <td rowspan="2" colspan="2" class="bold">MEANING</td>
+            <td class="italic">a common aspect</td>
+            <td class="italic">a process</td>
+            <td class="italic">priority</td>
+            <td class="italic">priority + process</td>
+        </tr>
+        <tr>
+            <td class="bold">When?</td>
+            <td class="bold">At what time?</td>
+            <td class="bold">By what time?</td>
+            <td class="bold">Since what time?<br>How long?</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="italic-b">Period of time</td>
+            <td class="italic">usually, often, always, seldom, <br>every day (week, month, year)</td>
+            <td class="italic">now, at the moment</td>
+            <td class="italic">ever, never, just, already, <br>not...yet, by 3 p.m.</td>
+            <td class="italic">since 3 p.m., for a long time, <br>for a month</td>
+        </tr>
+        <tr>
+            <td rowspan="3">Present</td>
+            <td class="bold">+</td>
+            <td><b>V</b>/<b>V</b>s</td>
+            <td>am/is/are + <b>V</b>ing</td>
+            <td>have/has + <b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>have/has + been +<br><b>V</b>ing</td>
+        </tr>
+        <tr>
+            <td class="bold">?</td>
+            <td>do/does + <b>V</b></td>
+            <td>inversion</td>
+            <td>inversion</td>
+            <td>inversion</td>
+        </tr>
+        <tr>
+            <td class="bold">-</td>
+            <td>do/does + not + <b>V</b></td>
+            <td>am/is/are + not + <b>V</b>ing</td>
+            <td>have/has + not + <br><b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>have/has + not + <br>been + <b>V</b>ing</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="italic-b">Period of time</td>
+            <td class="italic">yesterday, last week (month, <br>year), long ago</td>
+            <td class="italic">yesterday at 3p.m., yesterday <br>from 6 till 7, when you come</td>
+            <td class="italic">yesterday by 3p.m., before <br>some time in the past</td>
+            <td class="italic">yesterday since 3p.m., for <br>some time in the past</td>
+        </tr>
+        <tr>
+            <td rowspan="3">Past</td>
+            <td class="bold">+</td>
+            <td><b>V</b>ed/<b>V</b><sub>2</sub></td>
+            <td>was/were + <b>V</b>ing</td>
+            <td>had + <b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>had + been + <b>V</b>ing</td>
+        </tr>
+        <tr>
+            <td class="bold">?</td>
+            <td>did + <b>V</b></td>
+            <td>inversion</td>
+            <td>inversion</td>
+            <td>inversion</td>
+        </tr>
+        <tr>
+            <td class="bold">-</td>
+            <td>did + not + <b>V</b></td>
+            <td>was/were + not + <b>V</b>ing</td>
+            <td>had + not + <b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>had + not + been + <br><b>V</b>ing</td>
+        </tr>
+        <tr>
+            <td colspan="2" class="italic-b">Period of time</td>
+            <td class="italic">tomorrow, next week (month, <br>year)</td>
+            <td class="italic">tomorrow at 3p.m., tomorrow <br>from 6 till 7, when you come</td>
+            <td class="italic">tomorrow by 3p.m., before <br>some time in the future</td>
+            <td class="italic">tomorrow since 3p.m., for <br>some time in the future</td>
+        </tr>
+        <tr>
+            <td rowspan="3">Future</td>
+            <td class="bold">+</td>
+            <td> will + <b>V</b></td>
+            <td>will + be + <b>V</b>ing</td>
+            <td>will + have + <b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>will + have + been + <br><b>V</b>ing</td>
+        </tr>
+        <tr>
+            <td class="bold">?</td>
+            <td>inversion</td>
+            <td>inversion</td>
+            <td>inversion</td>
+            <td>inversion</td>
+        </tr>
+        <tr>
+            <td class="bold">-</td>
+            <td>won't + <b>V</b></td>
+            <td>won't + be + <b>V</b>ing</td>
+            <td>won't + have + <b>V</b>ed/<b>V</b><sub>3</sub></td>
+            <td>won't + have + been + <br><b>V</b>ing</td>
+        </tr>
+    </table>
+</body>
+</html>
