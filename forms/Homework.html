@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Registration</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>Registration Details</legend>
+            <ul>
+                <li>
+                <label for="university"><span class="txt">University: </span></label>
+                <input type="text" size="30cm" class="uni" placeholder="Введите название университета">
+            </li>
+            <li>
+                <label for="institute"><span class="txt">Institute: </span></label>
+                <input type="text" size="30cm" class="ins" placeholder="Введите название института">
+            </li>
+            <li>
+                <label for="branch"><span class="txt">Branch: </span></label>
+                <select name="branch" class="branch">
+                <option value="select">- - select - -</option>
+                <option value="select">Name 1</option>
+                <option value="select">Name 2</option>
+                <option value="select">Name 3</option>
+                <option value="select">Name 4</option>
+                </select>
+            </li>
+            <li>
+                <label for="degree"><span class="txt">Degree: </span></label>
+                <select name="degree" class="degree">
+                <option value="select">- - select - -</option>
+                <option value="select">1</option>
+                <option value="select">2</option>
+                <option value="select">3</option>
+                <option value="select">4</option>
+                </select>
+                <input type="radio" name="fav_language" value="pursuing">
+                <label for="pursuing">Pursuing</label>
+                <input type="radio" name="fav_language" value="completed">
+                <label for="completed">Completed</label>
+            </li>
+            <li>
+                <label for="avarage"><span class="txt">Avarage CPI: </span></label>
+                <input type="number" name="avarage" min="1" max="4" class="number">
+                <label for="upto">Upto </label>
+                <input type="number" name="upto" min="1" max="5" class="upto">
+                <span>Th Semester</span>
+            </li>
+            <li>
+                <label for="exp"><span class="txt">Experience </span></label>
+                <input type="number" name="exp" min="1" max="60" class="exp">
+                <span>Years</span>
+            </li>
+            <li>
+                <label for="website"><span class="txt">Your Website or Blog: </span></label>
+                <input type="text" value="http://" class="website">
+            </li>
+            </ul>
+        </fieldset>
+    </form>
+</body>
+</html>

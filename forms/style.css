@@ -1,0 +1,52 @@
+/* Увеличим шрифт и зададим задний фон */
+body {
+    font-size: 20px;
+    background-color: #356aa0;
+}
+/* Для этих тегов уберем нумерацию строк */
+/* сделаем невидимую сетку, сделаем внешние отступы справа и слева */
+/* Зададим высоту и цвет текста белый */
+form, ul {
+    list-style-type: none;
+    display: grid;
+    margin: 0 7em 0 7em;
+    height: 40vh;
+    color: white;
+}
+/* Для классов ниже сделаем отступы слева, а так же ширину input */
+.uni {
+    margin-left: 4em;
+}
+.ins {
+    margin-left: 4em;
+}
+.branch {
+    width: 5cm;
+    margin-left: 4em;
+}
+.degree {
+    width: 2.5cm;
+    margin-left: 4em;
+}
+.number {
+    width: 1cm;
+    margin-left: 4em;
+}
+.upto {
+    width: 1cm;
+}
+.exp {
+    width: 1.5cm;
+    margin-left: 4em;
+}
+.website {
+    width: 6cm;
+    margin-left: 4em;
+}
+/* Выровняем текст по правому краю */
+.txt {
+  display: inline-block;
+  width: 180px;
+  text-align: right;
+  margin-right: 10px;
+}
