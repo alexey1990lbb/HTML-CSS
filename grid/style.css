@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    border: 1px solid gray;
+}
+html, body { 
+    border: none;
+}
+.site {
+    display: grid;
+    height: 98vh;
+    grid-template-rows: 5% 88% 5%;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+.site-content {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0.5em;
+    padding: 0.5em;
+}
+.content-area {
+    padding: 0.5em;
+}
+
+.site-main {
+    display: grid;
+    grid-template-rows: auto 10% 20%;
+    height: 97%;
+    gap: 0.5em;
+    padding: 0.5em;
+}

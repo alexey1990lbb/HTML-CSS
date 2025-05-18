@@ -1,0 +1,55 @@
+        body {
+            font-size: 30px;
+        }
+        header {
+            background-color: #92edfd;
+            position: relative;
+            height: 3em;
+            margin: 5px;
+        }
+        nav {
+            background-color: #f2fedf;
+            position: absolute;
+            bottom: 5px;
+            left: 5px;
+            width: 97%;
+        }
+        article {
+            background-color: #b1d6fe;
+            float: left;
+            width: 87%;
+            height: 21.5em;
+            margin: 5px;
+        }
+        section {
+            position: absolute;
+            background-color: #ffb56a;
+            height: 6em;
+        }
+        aside {
+            background-color: #b9a2dc;
+            float: right;
+            height: 21.5em;
+            width: 11%;
+            margin: 5px;
+        }
+        footer {
+            background-color: #7ae3f7;
+            clear: both;
+            margin: 5px;
+        }
+        .s1 {
+            top: 140px;
+            width: 35em;
+            left: 1em;
+        }
+        .s2 {
+            top: 340px;
+            width: 35em;
+            left: 1em;
+        }
+        .s3 {
+            top: 540px;
+            width: 35em;
+            left: 1em;
+        }
