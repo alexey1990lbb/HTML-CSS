@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW1</title>
+    <script>
+
+        // Запросим строку у пользователя
+        let year = parseInt(prompt('Проверка високосного года, введи год: '));
+
+            // проверим на корректность года
+            if (year <= 0){
+                alert('Введите корректное значние года');
+
+            // делим на 400, если равен нулю то true
+            } else if (year % 400 === 0) { 
+                alert('Год високосный');
+                
+            // делим на 100, если равен 0, то true
+            } else if (year % 100 === 0) {
+                alert('Год не високосный');
+
+            // делим на 4, если равен 0, то true
+            } else if (year % 4 === 0) {
+                alert('Год високосный');
+                
+            // если выражение false то выводим сообщение
+            } else {
+        alert('Год не високосный');
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW2</title>
+    <script>
+
+        // Зададим переменные и запросим ввод суммы и наименование валюты
+        let usd = parseInt(prompt('Введите количество USD для конвертации: '));
+        let value = prompt('Введите название валюты на которую хотите сделать обмен: EUR, UAN, AZN');
+
+        
+        let upperVaule = value.toUpperCase(); // Преобразуем вводимые буквы в большие
+
+        let convert;
+
+        //Сделаем вычисление и уберем десятые с помощью | 0
+        switch (upperVaule) {
+            case 'EUR':
+                convert = ('Вы получите: ') + (usd / 1.16 | 0) + ' ' + ('EUR');
+                break;
+
+            case 'UAN':
+                convert = ('Вы получите: ') + (usd * 7.20 | 0) + ' ' + ('UAN');
+                break;
+
+            case 'AZN':
+                convert = ('Вы получите: ') + (usd * 1.7 | 0) + ' ' + ('AZN');
+                break;
+
+            default:
+                convert = 'Данная валюта не поддерживается'
+        }
+        alert(convert)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

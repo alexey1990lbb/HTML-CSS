@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW4</title>
+    <script>
+        //Зададим переменные и запросим у пользователя дату
+        let day = parseInt(prompt('Введите число дня: '));
+        let month = parseInt(prompt('Введите число месяца: '));
+        let year = parseInt(prompt('Введите год: '));
+
+        let daysInMonth;
+        
+            //Месяцы с 31 днем
+        switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            daysInMonth = 31;
+            // Месяцы с 30 днями
+        break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            daysInMonth = 30;
+            // Месяц с 28 или 29 дней
+        break;
+        case 2:
+            if ((year % 400 === 0) || (year % 4 === 0 && year % 100 !== 0)) {
+            daysInMonth = 29; // Високосный год
+        } else {
+            daysInMonth = 28; // Обычный год
+        }
+            break;
+        default:
+        alert('Некорректный месяц');
+        daysInMonth = 0;
+        }
+
+        if (daysInMonth === 0 || day < 1 || day > daysInMonth) { // Смотрим, корректно ли пользователь вводит дату
+            alert('Некорректная дата');
+        } else {
+            // Ниже мне помог ИИ, так как я не понял как прибавить к дате следующее число, месяц, год.
+            // Вычисляем следующую дату
+        day++;
+            if (day > daysInMonth) {
+                day = 1;
+                month++;
+            if (month > 12) {
+                month = 1;
+                year++;
+            }
+        }
+
+    // Форматируем числа с ведущими нулями
+    let dayStr = day.toString().padStart(2, '0');
+    let monthStr = month.toString().padStart(2, '0');
+
+    alert(`Следующая дата: ${dayStr}.${monthStr}.${year}`);
+}
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
