@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <script>
+        // Написать функцию, которая принимает 2 числа и знак (+ - * /), считает пример и возвращает результат.
+        let x = calc(20, 2, '*');
+
+        console.log(x);
+
+        function calc(a, b, c) {
+           switch (c) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                return a / b;
+                default:
+                    return 'Функция не поддерживается'
+           }
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

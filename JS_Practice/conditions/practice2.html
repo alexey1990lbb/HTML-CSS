@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let quest1 = parseInt(prompt('На какой свет светофора разрешается идти? Введите цифру правильного ответа: \n 1 - Желтый \n 2 - Зеленый \n 3 - Красный'));
+        let quest2 = parseInt(prompt('Какая фамилия у известного режиссёра Квентина ... ? Введите цифру правильного ответа: \n 1 - Паранчино \n 2 - Карачино \n 3 - Тарантино'));
+        let quest3 = parseInt(prompt('Сколько дней в недели ? Введите цифру правильного ответа: \n 1 - Семь \n 2 - Восем \n 3 - Пять'));
+
+        let result1;
+        let result2;
+        let result3;
+
+        switch (quest1) {
+            case 2:
+                result1 = 2;
+                break;      
+            default:
+                result1 = 0;
+                break;
+        }
+        switch (quest2) {
+            case 3:
+                result2 = 2;
+                break;       
+            default:
+                result2 = 0;
+                break;
+        }
+        switch (quest3) {
+            case 1:
+                result3 = 2;
+                break;        
+            default:
+                result3 = 0;
+                break;
+        }
+        alert('Количество баллов за правильные ответы: ' + (result1 + result2 + result3))
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>
