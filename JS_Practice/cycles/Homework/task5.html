@@ -7,11 +7,11 @@
     <script>
 
         // задаим переменные для чисел
-        let Odd = 0;
-        let Even = 0;
-        let Positive = 0;
-        let Negative = 0;
-        let Zero = 0;
+        let odd = 0;
+        let even = 0;
+        let positive = 0;
+        let negative = 0;
+        let zero = 0;
 
         // зададим кол-во вводов и создадим счетчик
         for(let i = 0; i < 10; i++) {
@@ -21,29 +21,29 @@
 
             // смотрим какое это число положительное или отрицательное
             if (number > 0) {
-                Positive++;
+                positive++;
             } else if (number < 0) {
-                Negative++;
+                negative++;
 
             // проверка числа на ноль
             } else {
-                Zero++; 
+                zero++; 
             } 
 
             // смотрим какое это число четное или нет
             if (number % 2 === 0) {
-                Even++; 
+                even++; 
              } else {
-                Odd++;
+                odd++;
             }
         }
 
         // Выводим результат
-            console.log('Положительных чисел: ' + Positive) 
-            console.log('Отрицательных чисел: ' + Negative)
-            console.log('Нулей: ' + Zero)
-            console.log('Четных чисел: ' + Even)
-            console.log('Нечетных чисел: ' + Odd)
+            console.log('Положительных чисел: ' + positive) 
+            console.log('Отрицательных чисел: ' + negative)
+            console.log('Нулей: ' + zero)
+            console.log('Четных чисел: ' + even)
+            console.log('Нечетных чисел: ' + odd)
 
     </script>
 </head>
