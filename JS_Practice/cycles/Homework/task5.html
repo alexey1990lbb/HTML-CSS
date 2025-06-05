@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <script>
+
+        // задаим переменные для чисел
+        let Odd = 0;
+        let Even = 0;
+        let Positive = 0;
+        let Negative = 0;
+        let Zero = 0;
+
+        // зададим кол-во вводов и создадим счетчик
+        for(let i = 0; i < 10; i++) {
+
+            // запросим у пользователя число
+            let number = parseInt(prompt('Введите любое целое число: '));
+
+            // смотрим какое это число положительное или отрицательное
+            if (number > 0) {
+                Positive++;
+            } else if (number < 0) {
+                Negative++;
+
+            // проверка числа на ноль
+            } else {
+                Zero++; 
+            } 
+
+            // смотрим какое это число четное или нет
+            if (number % 2 === 0) {
+                Even++; 
+             } else {
+                Odd++;
+            }
+        }
+
+        // Выводим результат
+            console.log('Положительных чисел: ' + Positive) 
+            console.log('Отрицательных чисел: ' + Negative)
+            console.log('Нулей: ' + Zero)
+            console.log('Четных чисел: ' + Even)
+            console.log('Нечетных чисел: ' + Odd)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

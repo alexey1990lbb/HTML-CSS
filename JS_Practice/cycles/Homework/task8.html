@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <script>
+    
+    // Создадим дни недели
+    const days = ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'];
+
+    // счетчик
+    let i = 0;
+
+    // показываем текущий день
+    while (true) {
+    alert(days[i]); 
+    // спрашиваем, хочет ли увидеть следующий день
+    if (!confirm('Хотите увидеть следующий день?')) {
+
+        // если пользователь нажал Отмена, выходим из цикла
+        break; 
+    }
+
+    // переходим к следующему дню
+    i = (i + 1) % days.length; 
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

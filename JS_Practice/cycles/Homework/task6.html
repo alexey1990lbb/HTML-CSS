@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <script>
+
+        // создадим цикл
+        while (true) {
+
+        // запросим числа и знак
+        let num1 = parseInt(prompt('Введите первое число: '));
+        let calc = prompt('Введите математический знак "+", "-", "*", "/"');
+        let num2 = parseInt(prompt('Введите второе число: '));
+
+        // создадим переменную с результатом
+        let result;
+
+        // вычисляем
+            switch (calc) {
+            case '+':
+                result = num1 + num2;
+                break
+            case '-':
+                result = num1 - num2;
+                break
+            case '*':
+                result = num1 * num2;
+                break
+            case '/':
+                // проверка деления на ноль
+                if (num2 === 0) {
+            result = 'На ноль делить нельзя!';
+            } else {
+            result = num1 / num2;
+            }
+            break;
+        }
+
+            //вывод
+            alert('Результат: ' + result);
+
+            // спрашиваем у пользователя, хочет ли он продолжить, вводимые буквы переведем в маленькие
+            let again = prompt('Хотите продолжить? (да/нет)').toLowerCase();
+            if (again !== 'да') {
+            break;
+           }
+        }
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

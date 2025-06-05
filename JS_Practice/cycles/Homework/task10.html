@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10</title>
+    <script>
+
+    // создадим переменные
+    let low = 0;
+    let high = 100;
+    let guess;
+    let response;
+    
+    // попросим пользователя загадать число
+    alert("Загадайте число от 0 до 100, а я попробую его угадать.");
+    
+    // разделим 100 на 2 и спросим в каком диапазоне загаданное число
+    while (low <= high) {
+    guess = Math.floor((low + high) / 2);
+    response = prompt(`Ваше число > ${guess}, < ${guess} или = ${guess}? Введите >, < или =`);
+
+    // вычисляем
+    if (response === "=") {
+
+    // если загадл 50, мы угадали
+    alert(`Я угадал ваше число: ${guess}!`);
+    break;
+
+    // начинаем отгадывать по диапазонам
+  } else if (response === ">") {
+    low = guess + 1;
+  } else if (response === "<") {
+    high = guess - 1;
+
+    //если пользователь вводит не корректный знак
+  } else {
+    alert("Пожалуйста, введите только >, < или =.");
+  }
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
