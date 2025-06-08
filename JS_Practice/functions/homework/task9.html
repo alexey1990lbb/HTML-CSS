@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9</title>
+    <script>
+        //запросим секунды
+    let secondsInput = parseInt(prompt('Введите количество секунд: '));
+
+        //вычислим часы, минуты, секунды
+    function calc(secondsInput) {
+        let hours = (secondsInput / 3600) | 0; // часы
+        let minutesCalc = secondsInput % 3600; // остаток секунд после часов
+        let minutes = (minutesCalc / 60) | 0; // минуты
+        let seconds = minutesCalc % 60; // секунды
+
+        //добавим ведущие нули, если результат получился, например 1:1:1
+        let formattedTime = 
+        String(hours).padStart(2, '0') + ':' +
+        String(minutes).padStart(2, '0') + ':' +
+        String(seconds).padStart(2, '0');
+
+        //вывод результата
+    console.log(formattedTime);
+}
+
+    calc(secondsInput);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

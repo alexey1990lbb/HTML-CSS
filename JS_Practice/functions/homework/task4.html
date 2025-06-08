@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <script>
+
+    // Написать функцию, которая принимает длину и ширину
+    // прямоугольника и вычисляет его площадь. Если в функцию
+    // передали 1 параметр, то она вычисляет площадь квадрата.
+
+            function square(length, width) {
+                if (width === undefined) {
+                    return length * length;
+                } else {
+                    return length * width;
+                }
+            }
+
+        let length = parseInt(prompt('Введите длинну прямоугольника: '));
+        let width = parseInt(prompt('Введите ширину прямоугольника(оставьте пустым для квадрата): '));
+
+            if (isNaN(width)) {
+                console.log('Площадь квадрата: ' + square(length));
+            } else {
+                console.log('Площадь прямоугольника: ' + square(length, width));
+}
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

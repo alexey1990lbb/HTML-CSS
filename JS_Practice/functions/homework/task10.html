@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 10</title>
+    <script>
+        //запросим первое время
+        let h1 = parseInt(prompt('Введите который сейчас час от 0 до 23 для даты 1: '));
+        let m1 = parseInt(prompt('Введите минуты от 0 до 59 для даты 1: '));
+        let s1 = parseInt(prompt('Введите секунды от 0 до 59 для даты 1: '));
+
+        //запросим второе время
+        let h2 = parseInt(prompt('Введите который сейчас час от 0 до 23 для даты 2: '));
+        let m2 = parseInt(prompt('Введите минуты от 0 до 59 для даты 2: '));
+        let s2 = parseInt(prompt('Введите секунды от 0 до 59 для даты 2: '));
+
+        //проверка на корректность ввода
+        function calc1(h1, m1, s1) {
+            if (h1 < 0 || h1 > 23 || isNaN(h1)) {
+            console.log('Введен некорректный час'); 
+            return false;
+        }
+
+            if (isNaN(m1) || m1 === undefined) {
+                m1 = 0;
+            } else if (m1 < 0 || m1 > 59) {
+                console.log('Введены некорректные минуты');
+                return false;
+            }
+            
+            if (isNaN(s1) || s1 === undefined) {
+                s1 = 0;
+            } else if (s1 < 0 || s1 > 59) {
+                console.log('Введены некорректные секунды');
+                return false;
+            }
+            return true;
+        }
+
+            //переводим первое введенное время в секунды
+        let totalSeconds1 = h1 * 3600 + m1 * 60 + s1;
+
+            calc1(h1, m1, s1)
+
+            //проверка для второго ввода
+            function calc2(h2, m2, s2) {
+            if (h2 < 0 || h2 > 23 || isNaN(h2)) {
+            console.log('Введен некорректный час'); 
+            return false;
+        }
+    
+            if (isNaN(m2) || m2 === undefined) {
+                m2 = 0;
+            } else if (m2 < 0 || m2 > 59) {
+                console.log('Введены некорректные минуты');
+                return false;
+            }
+            
+            if (isNaN(s2) || s2 === undefined) {
+                s2 = 0;
+            } else if (s2 < 0 || s2 > 59) {
+                console.log('Введены некорректные секунды');
+                return false;
+            }
+            return true;
+        }
+            //переводим второе введенное время в секунды
+        let totalSeconds2 = h2 * 3600 + m2 * 60 + s2;
+
+            calc2(h2, m2, s2)
+
+
+            //сделаем вычислением, у первого результата отнимем второй
+            function calc3(totalSeconds1, totalSeconds2) {
+                let total = totalSeconds1 - totalSeconds2;
+
+                //переводим в часы, минуты, секунды
+                let hours = (total / 3600) | 0; // получаем часы
+                let minutesCalc = total % 3600;
+                let minutes = (minutesCalc / 60) | 0; // минуты
+                let seconds = minutesCalc % 60; //секунды
+
+                //добавляем ведущие нули
+                let formattedTime = 
+            String(hours).padStart(2, '0') + ':' +
+            String(minutes).padStart(2, '0') + ':' +
+            String(seconds).padStart(2, '0');
+            console.log('Разница во времени составляет: ' + formattedTime)
+            }
+
+            calc3(totalSeconds1, totalSeconds2)
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

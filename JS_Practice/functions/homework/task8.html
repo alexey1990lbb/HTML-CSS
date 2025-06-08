@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <script>
+        // Написать функцию, которая принимает часы, минуты и
+        // секунды и возвращает это время в секундах.
+
+        // создадим переменные
+let hours = parseInt(prompt('Введите который сейчас час от 00 до 23: '));
+let minutes = parseInt(prompt('Введите минуты от 00 до 59: '));
+let seconds = parseInt(prompt('Введите секунды от 00 до 59: '));
+
+// сделаем проверку на корректность ввода
+function time(hours, minutes, seconds) {
+    if (hours < 0 || hours > 23 || isNaN(hours)) {
+        console.log('Введен некорректный час');
+        return;
+    }
+
+    if (isNaN(minutes) || minutes === undefined) {
+        minutes = 0;
+    } else if (minutes < 0 || minutes > 59) {
+        console.log('Введены некорректные минуты');
+        return;
+    }
+
+    if (isNaN(seconds) || seconds === undefined) {
+        seconds = 0;
+    } else if (seconds < 0 || seconds > 59) {
+        console.log('Введены некорректные секунды');
+        return;
+    }
+    // посчитаем секунды
+    let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    console.log('Ваше введенное время в секундах равняется: ' + totalSeconds);
+}
+
+time(hours, minutes, seconds);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

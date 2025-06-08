@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <script>
+        // Написать функцию, которая принимает время (часы, минуты,
+        // секунды) и выводит его на экран в формате «чч:мм:сс».
+        // Если при вызове функции минуты и/или секунды не были
+        // переданы, то выводить их как 00.
+
+let hours = parseInt(prompt('Введите который сейчас час от 00 до 23: '));
+let minutes = parseInt(prompt('Введите минуты от 00 до 59: '));
+let seconds = parseInt(prompt('Введите секунды от 00 до 59: '));
+
+function time(hours, minutes, seconds) {
+    // Проверяем корректность часов
+    if (hours < 0 || hours > 24 || isNaN(hours)) {
+        console.log('Введен некорректный час');
+        return;
+    }
+
+    // Если минуты не число или не введены, присваиваем '00'
+    if (isNaN(minutes) || minutes === undefined) {
+        minutes = '00';
+    } else if (minutes < 0 || minutes > 60) {
+        console.log('Введены некорректные минуты');
+        return;
+    } else {
+        // Добавляем ведущий ноль, если нужно
+        minutes = minutes < 10 ? '0' + minutes : minutes;
+    }
+
+    // Если секунды не число или не введены, присваиваем '00'
+    if (isNaN(seconds) || seconds === undefined) {
+        seconds = '00';
+    } else if (seconds < 0 || seconds > 60) {
+        console.log('Введены некорректные секунды');
+        return;
+    } else {
+        // Добавляем ведущий ноль, если нужно
+        seconds = seconds < 10 ? '0' + seconds : seconds;
+    }
+
+    console.log(hours + ':' + minutes + ':' + seconds);
+}
+
+time(hours, minutes, seconds);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
