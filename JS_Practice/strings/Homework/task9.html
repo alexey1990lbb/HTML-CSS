@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 9</title>
+    <script>
+// Написать функцию, которая считает среднюю длину слова в предложении.
+
+        //создадим функцию
+        function averagetWordLength(sentence) {
+            // разбиваем предложение на слова, учитывая русские и латинские буквы, цифры
+            let words = sentence.match(/[а-яёА-ЯЁa-zA-Z0-9]+/g);
+            if (!words || words.length === 0) {
+                return 0; // если слов нет, возвращаем 0
+            }
+            //считаем сумарную длинну всех слов
+            let totalLength = 0;
+            for (let i = 0; i < words.length; i++) {
+                totalLength += words[i].length;
+            }
+            return totalLength / words.length | 0;
+        }
+
+        //пример использования
+        console.log(averagetWordLength('Как работает функция в этом предложении'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

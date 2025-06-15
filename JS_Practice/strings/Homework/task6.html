@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 6</title>
+    <script>
+        // Написать функцию, которая проверяет, является ли пере данная строка палиндромом.
+        // создадим функцию
+        function isPalindrom(str) {
+            // приведем все к нижнему регистру
+            let lower = str.toLowerCase();
+            // создаем перевернутую строку
+            let reversed = lower.split('').reverse().join('');
+            // сравниваем строки
+            return lower === reversed;
+        }
+
+        console.log(isPalindrom('шалаш'));
+        console.log(isPalindrom('Привет'))
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

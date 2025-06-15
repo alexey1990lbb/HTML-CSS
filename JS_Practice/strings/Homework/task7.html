@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 7</title>
+    <script>
+        // Написать функцию, которая считает количество слов в предложении.
+
+        function countWords(sentence) {
+            // убираем лишние пробелы в начале и конце, затем разбиваем по пробелам
+            let words = sentence.trim().split(/\s+/);
+             // если строка пустая, возвращаем 0
+            if (words[0] === '') {
+                return 0;
+            }
+            return words.length;
+        }
+
+        // gримеры использования
+        console.log(countWords('Привет, как дела?'));
+        console.log(countWords('   Один  два   три   четыре     пять  '));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

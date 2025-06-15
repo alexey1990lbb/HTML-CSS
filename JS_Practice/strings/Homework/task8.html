@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 8</title>
+    <script>
+// Написать функцию, которая возвращает самое длинное слово из предложения.
+
+        //создадим функцию
+        function getLongestWord(sentence) {
+            // разбиваем предложения на слова и убираем знаки препинания
+            let words = sentence.match(/[а-яёА-ЯЁa-zA-Z0-9]+/g);
+            if (!words || words.length === 0) {
+                return ''; // если слов нет, возвращаем пусто
+            }
+            let longestWord = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (words[i].length > longestWord.length) {
+                    longestWord = words[i];
+                }
+            }
+            return longestWord;
+        }
+
+        console.log(getLongestWord('Как работает функция'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

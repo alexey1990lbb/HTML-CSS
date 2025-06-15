@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 5</title>
+    <script>
+        // Написать функцию сокращения строки. Функция принимает
+        // строку и ее максимальную длину. Если длина строки
+        // больше, чем максимальная, то необходимо отбросить
+        // лишние символы, добавив вместо них троеточие.
+
+            // создадим функцию
+        function shortenString(str, maxLength) {
+            //проверяем длинну строки
+            if (str.length <= maxLength) {
+                // если короткая возвращаем строку
+                return str;
+                // если много букв, то сокращаем и добавляем троеточие
+            } else {
+                return str.slice(0, maxLength - 3) + '...';
+            }
+        }
+        // пример использования
+        console.log(shortenString('Привет, как дела?', 10));
+        console.log(shortenString('Длинная строка, прям очень длинная', 15));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
