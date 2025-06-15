@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+    <script>
+        
+        function isPointInsideRectangle(rectangle, x, y) {
+  // Проверяем, что точка по X находится между leftTopX и rightBottomX
+  // и по Y — между rightBottomY и leftTopY (учитывая, что Y уменьшается вверх)
+  return (
+    x >= rectangle.leftTopX &&
+    x <= rectangle.rightBottomX &&
+    y <= rectangle.leftTopY &&
+    y >= rectangle.rightBottomY
+  );
+}
+
+// Пример использования:
+const rectangle = {
+  leftTopX: 2,
+  leftTopY: 3,
+  rightBottomX: 6,
+  rightBottomY: 1
+};
+
+console.log(isPointInsideRectangle(rectangle, 4, 2)); // true — точка внутри
+console.log(isPointInsideRectangle(rectangle, 7, 2)); // false — точка снаружи
+console.log(isPointInsideRectangle(rectangle, 2, 3)); // true — точка на границе считается внутри
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
