@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 4</title>
+    <script>
+        const rectangle = {
+            leftTopX: 2,
+            leftTopY: 3,
+            rightBottomX: 6,
+            rightBottomY: 1,
+            square: function() {
+                let side1 = Math.abs(this.rightBottomX - this.leftTopX);
+                let side2 = Math.abs(this.leftTopY - this.rightBottomY);
+                return side1 * side2;
+            }
+            }
+
+        console.log('Площадь прямоугольника: ' + rectangle.square());
+
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

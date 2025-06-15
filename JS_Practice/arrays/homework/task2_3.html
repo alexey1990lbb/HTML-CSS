@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2-3</title>
+    <script>
+        // Функция принимает 2 массива и возвращает новый массив, 
+        // в котором собраны все элементы из первого массива,
+        // которых нет во втором массиве.
+
+        // создадим функцию        
+        function difference(arr1, arr2) {
+            // создадим новый пустой массив
+            var result = [];
+            //создадим цикл и посчитаем элементы
+            for (var i = 0; i < arr1.length; i++) {
+                // проверяем есть ли элемент в массиве
+                if (arr2.indexOf(arr1[i]) === -1) {
+                    //добавим элемент
+                    result.push(arr1[i]);
+                }
+                }
+            return result;
+            }
+            // создадим два массива
+        var array1 = [21, 22, 1, 5, 4];
+        var array2 = [2, 1, 22, 6 , 8];
+            // создадим переменную с отработанной функцией
+        var diff = difference(array1, array2);
+        //выводим результат
+        console.log(diff);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

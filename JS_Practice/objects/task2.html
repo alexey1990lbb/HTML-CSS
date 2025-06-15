@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <script>
+        const rectangle = {
+            leftTopX: 2,
+            leftTopY: 3,
+            rightBottomX: 6,
+            rightBottomY: 1,
+            width: function() {
+                let side1 = Math.abs(this.rightBottomX - this.leftTopX);
+                let side2 = Math.abs(this.leftTopY - this.rightBottomY);
+            
+
+            // if (side1 < side2) {
+            //     return side1;
+            // } else {
+            //     return side2;
+            // }
+            return side1 < side2 ? side1 : side2;
+            }
+
+        };
+        console.log(rectangle.width());
+
+        // rectangle.rightBottomX = 10;
+
+        // console.log(rectangle.width());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

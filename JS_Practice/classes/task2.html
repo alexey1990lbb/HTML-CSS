@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2</title>
+    <script>
+        class Attribute {
+            constructor (name, value) {
+                this.name = name;
+                this.value = value;
+            }
+        }
+        class HtmlElement {
+            constructor(tagName, isSelfClosed, innerText, attributes, styles, innerElements) {
+            this.tagName = tagName;
+            this.isSelfClosed = isSelfClosed;
+            this.innerText = innerText;
+            this.attributes = attributes;
+            this.styles = styles;
+            this.innerElements = innerElements;
+            }
+
+            addAttribute(attribute) {
+                this.attributes.push(attribute);
+            }
+
+            getHtml() {
+                let result = ' ';
+
+                result+=`<${this.tagName} `;
+                for (let i = 0; i < this.attributes.length; i++) {
+                    result += `${this.attributes[i].name}='${this.attributes[i].value}' `;
+                    
+                }
+                result+=`></${this.tagName}>` ;
+                return result
+
+            }
+        }
+        let element = new HtmlElement('div', true, '', [], [], []);
+        element.addAttribute(new Attribute('id', 'wrapper'));
+
+        let html = element.getHtml();
+        document.write(html);
+
+        console.log(element);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

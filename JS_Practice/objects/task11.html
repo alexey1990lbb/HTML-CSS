@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 11</title>
+    <script>
+        const rectangle = {
+            leftTopX: 2,
+            leftTopY: 3,
+            rightBottomX: 6,
+            rightBottomY: 1,
+            moveAll: function(diffX, diffY) {
+                this.leftTopY += diffY;
+                this.rightBottomY += diffY;
+                this.leftTopX += diffX;
+                this.rightBottomX += diffX;
+//                 return `Координаты левой верхней точки (${this.leftTopX}, ${this.leftTopY}).
+// Координаты правой нижней точки (${this.rightBottomX}, ${this.rightBottomY}).`;
+            }
+        };
+        console.log(rectangle);
+        console.log(rectangle.moveAll(3, 2));
+        console.log(rectangle);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

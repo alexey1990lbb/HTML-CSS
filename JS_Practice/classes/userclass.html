@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes - User</title>
+    <script>
+
+        class User {
+
+  constructor(name) {
+    // вызывает сеттер
+    this.name = name;
+  }
+
+  get name() {
+    return this._name;
+  }
+
+  set name(value) {
+    if (value.length < 4) {
+      alert("Имя слишком короткое.");
+      return;
+    }
+    this._name = value;
+  }
+
+}
+
+let user = new User("Иван");
+user.name = 'Зоя';
+let message = user.name;
+alert(message); // Иван
+
+// user = new User(""); // Имя слишком короткое.
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

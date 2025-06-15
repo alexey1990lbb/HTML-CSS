@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2-2</title>
+    <script>
+//         Функция принимает 2 массива и возвращает новый массив,
+// в котором собраны общие элементы (то есть элементы,
+// которые встречаются и в первом и во втором массивах)
+// без повторений.
+
+        // создадим функцию
+        function getCommonElements(arr1, arr2) {
+            // создадим пустой массив
+            var common = [];
+            // создадим цикл и посчитаем индексы в массиве
+            for (var i = 0; i < arr1.length; i++) {
+                //сохраним элементы в новом массиве
+                var element = arr1[i];
+                //проверяем есть ли этот элемент в arr2, а так же проверим что элемент еще не добавлен в массив
+                if (arr2.indexOf(element) !== -1 && common.indexOf(element) === -1) {
+                    //добавим элемент в массив
+                    common.push(element);
+                }
+                }
+            return common;
+            }
+            // создадим 2 массива
+        var array1 = [1, 4, 5, 5, 3];
+        var array2 = [1, 5, 4, 6, 8];
+            // создадим переменную и присвоем ей отработанную функцию
+        var CommonElements = getCommonElements(array1, array2);
+        // вернем результат
+        console.log(CommonElements);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

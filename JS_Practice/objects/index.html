@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  },
+  age: function(birthDate) {
+    let result;
+    let now = new Date();
+    result = new Date(now - birthDate);
+    return result.getFullYear() - 1970;
+  }
+};
+console.log(person.age(new Date(2000, 1, 1)));
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

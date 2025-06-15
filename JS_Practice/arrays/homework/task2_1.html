@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 2-1</title>
+    <script>
+// Функция принимает 2 массива и возвращает новый массив,
+// в котором собраны все элементы из двух массивов
+// без повторений.
+
+        //создадим функцию
+        function mergedUnique(arr1, arr2) {
+            //объеденим 2 массива
+            var combined = arr1.concat(arr2);
+            //создадим новый пустой массив
+            var unique = [];
+            //создадим цикл и посчитаем элементы в массиве
+            for (var i = 0; i < combined.length; i++) {
+                //вернем элемент через indexOf если он найден, если нет то -1
+                if (unique.indexOf(combined[i]) === -1) {
+                    // через push добавим элемент
+                    unique.push(combined[i]);
+                }
+            }
+            return unique;
+        }
+        // создадим два массива
+        var array1 = [21, 22, 1, 5, 4];
+        var array2 = [2, 1, 22, 6, 8];
+        // создадим новую переменную по которой функция уже отработала
+        var merged = mergedUnique(array1, array2);
+        //выведем результат
+        console.log(merged);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

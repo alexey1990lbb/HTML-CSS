@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 1</title>
+    <script>
+        class Circle {
+            constructor(radius){
+                this.radius = radius;
+            }
+
+            get radius() {
+                return this._radius;
+            }
+
+            set radius(value) {
+                this._radius = value;
+            }
+            get diametr() {
+                return this._radius * 2;
+            }
+            area() {
+                return Math.PI * this._radius**2;
+            }
+            length() {
+                return 2 * Math.PI * this._radius;
+            }
+        }
+
+        let circle = new Circle(10);
+        console.log(circle.radius);
+        // circle.radius = 1;
+        // console.log(circle.radius);
+        console.log(circle.diametr);
+        console.log(circle.area());
+        console.log(circle.length());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

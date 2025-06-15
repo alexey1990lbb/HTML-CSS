@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3-2</title>
+    <script>
+//         Поиск фрукта в массиве. Функция принимает название
+// фрукта и возвращает индекс найденного элемента или -1,
+// если не найден. Поиск должен быть нерегистрозависимым.
+
+        //создадим массив
+        var fruits = ['Абрикос', 'Апельсин', 'Яблоко', 'Дыня', 'Черешня', 'Персик'];
+        //создадим функцию
+        function findFruitIndex(fruitName) {
+            //приведем все буквы к нижнему регистру
+            var lowerFruitName = fruitName.toLowerCase();
+            
+            for (var i =0; i < fruits.length; i++) {
+                if (fruits[i].toLowerCase() === lowerFruitName) {
+                    return i; // возвращаем если нашли совпадение
+                }
+            }
+            return -1; //если не нашли
+        }
+        console.log(findFruitIndex('яблоко'));
+        console.log(findFruitIndex('ГРУША'));
+        console.log(findFruitIndex('киви'));
+        console.log(findFruitIndex('дЫнЯ'));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
