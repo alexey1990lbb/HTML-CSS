@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inheritance - Task 1</title>
+    <script>
+        class Marker {
+            constructor(color, inkAmount) {
+                this.color = color;
+                this.inkAmount = inkAmount;
+            }
+
+            get inkAmount() {
+                return this._inkAmount;
+            }
+
+            set inkAmount(inkAmount) {
+                if (inkAmount >= 0 && inkAmount <= 100) {
+                    this._inkAmount = inkAmount;
+                } else {
+                    console.error(
+                        "InkAmount должен быть в диапазоне [0, 100].");
+                }
+            }
+
+            print(text) {
+                let result = `<p style = "color: ${this.color}">`;
+
+                for (let i = 0; i < text.length; i++) {
+                    if (this._inkAmount > 0) {
+                        if (text.charAt(i) !== " ") {
+                            this._inkAmount -= 0.5;
+                        }
+                        result += text.charAt(i);
+                    } else {
+                        break;
+                    }
+
+                }
+                result += "</p>";
+                document.write(result);
+            }
+        }
+
+        class RechargableMarker extends Marker {
+            constructor(color, inkAmount) {
+                super(color, inkAmount);
+            }
+
+            recharge(inkValue) { 
+                this._inkAmount = this._inkAmount + inkValue;
+                if(this._inkAmount > 100){
+                    this._inkAmount = 100;
+                }
+            }
+        }
+
+        let marker = new RechargableMarker("blue", 2);
+        marker.recharge(1);
+        marker.print("12 3456 789");
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>

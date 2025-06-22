@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+    <script>
+// Реализовать класс Employee, описывающий работника, и создать массив работников банка.
+// Реализовать класс EmpTable для генерации html кода таблицы со списком работников банка.
+// Массив работников необходимо передавать через конструктор, а получать html код с помощью метода getHtml().
+// Создать объект класса EmpTable и вывести на экран результат работы метода getHtml().
+
+        class Employee {
+            constructor (name, jobTitle, age, gender, phoneNumber) {
+                this.name = name;
+                this.jobTitle = jobTitle;
+                this.age = age;
+                this.gender = gender;
+                this.phoneNumber = phoneNumber;
+            }
+
+        }
+
+        class EmpTable {
+            constructor (employees) {
+                this.employees = employees;
+            }
+        
+
+            getHtml() {
+                let result = '<table border="1" cellpadding="5" style="border-collapse:collapse;">';
+
+                result += '<tr><th>Имя</th><th>Должность</th><th>Возраст</th><th>Пол</th><th>Телефон</th></tr>';
+                for (let emp of this.employees) {
+                    result += `<tr>
+                    <td>${emp.name}</td>
+                    <td>${emp.jobTitle}</td>
+                    <td>${emp.age}</td>
+                    <td>${emp.gender}</td>
+                    <td>${emp.phoneNumber}</td>
+                    </tr>`
+                }
+                result += '</table>';
+                return result;
+            }
+        }
+
+        var arrayWorkers = [
+            new Employee('Милена', 'Менеджер', 28, 'Женский', '89132546512'),
+            new Employee('Иван', 'Разработчик', 32, 'Мужской', '89134564532'),
+            new Employee('Анатолий', 'Дизайнер', 26, 'Мужской', '89526481255'),
+            new Employee('Наталья', 'Тестировщик', 24, 'Женский', '89063251254'),
+        ];
+
+        let table = new EmpTable(arrayWorkers);
+        document.write(table.getHtml());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
