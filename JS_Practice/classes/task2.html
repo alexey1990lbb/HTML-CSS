@@ -11,6 +11,13 @@
                 this.value = value;
             }
         }
+
+        class Style {
+            constructor(name, value) {
+                this.name = name;
+                this.value = value;
+            }
+        }
         class HtmlElement {
             constructor(tagName, isSelfClosed, innerText, attributes, styles, innerElements) {
             this.tagName = tagName;
@@ -25,6 +32,18 @@
                 this.attributes.push(attribute);
             }
 
+            addStyle(style) {
+                this.styles.push(style);
+            }
+
+            pushInnerElement(innerElement) {
+                this.innerElements.push(innerElement);
+            }
+
+            unshiftInnerElement(innerElement) {
+                this.innerElements.unshift(innerElement);
+            }
+
             getHtml() {
                 let result = ' ';
 
@@ -33,18 +52,55 @@
                     result += `${this.attributes[i].name}='${this.attributes[i].value}' `;
                     
                 }
-                result+=`></${this.tagName}>` ;
-                return result
+                if(this.styles.length > 0) {
 
+                result +='style="';
+                for (let i = 0; i < this.styles.length; i++) {
+                    result += `${this.styles[i].name}: ${this.styles[i].value}; `;
+                }
+                result +='"';
+            }
+
+                if(this.isSelfClosed) {
+                result +='>' ;
+                result +=`${this.innerText}` ;
+                for (let i = 0; i < this.innerElements.length; i++) {
+                    result += this.innerElements[i].getHtml();
+                }
+                result +=`</${this.tagName}>` ;
+                } else {
+                result +="/>";
+                }
+                return result;
+                
             }
         }
-        let element = new HtmlElement('div', true, '', [], [], []);
-        element.addAttribute(new Attribute('id', 'wrapper'));
+        // let element = new HtmlElement("div", true, "lorem ipsum", [], [], []);
+        // element.addAttribute(new Attribute("id", "wrapper"));
+        // element.addStyle(new Style("display", "flex"));
+        // element.addStyle(new Style("font-weight", "bold"));
+        // let html = element.getHtml();
+        // console.log(element);
+        
+        let a = new HtmlElement("a", true, "More...", [new Attribute("href", "https://www.lipsum.com/"), new Attribute("target", "_blank")], [], []);
+        let p = new HtmlElement("p", true, "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.", [],
+        
+            [new Style("text-align", "justify")], [a]);
+        let h3 = new HtmlElement("h3", true, "What is Lorem Ipsum", [], [], []);
 
-        let html = element.getHtml();
-        document.write(html);
+        let img = new HtmlElement("img", false, "", [new Attribute("src", "lipsum.jpg"), new Attribute("alt", "Lorem Ipsum")], [new Style("width", "100%")], []);
+        
+        let innerDiv1 = new HtmlElement("div", true, "", [], [new Style("width", "300px"), new Style("margin", "10px")], [h3, img, p]);
 
-        console.log(element);
+        let element = new HtmlElement("div", true, "", [], [], []);
+        element.addAttribute(new Attribute("id", "wrapper"));
+        element.addStyle(new Style("display", "flex"));
+        element.pushInnerElement(innerDiv1);
+        element.pushInnerElement(innerDiv1);
+
+        document.write(element.getHtml());
+
+
     </script>
 </head>
 <body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        class Book {
+            constructor(name, author, year) {
+                this.name = name;
+                this.author = author;
+                this.year = year;
+            }
+
+            getSummary() {
+                return `Название этой книги "${this.name}", от автора "${this.author}", вышедшая в ${this.year} году.`;
+            }
+
+            getAge() {
+                const currentYear = new Date().getFullYear();
+                return currentYear - this.year;
+            }
+
+            static compareYears(bookA, bookB) {
+                if (bookA.year < bookB.year) {
+                    return `Книга "${bookA.name}" от автора "${bookA.author}" старше.`;
+                 } else if (bookA.year > bookB.year) {
+                    return `Книга "${bookB.name}" от автора "${bookB.author}" старше.`;
+                 }else{
+                    return `Обе книги: "${bookB.name}" и "${bookA.name}" вышли в одном году`;
+                 } 
+                }
+            }
+        
+
+        let book1 = new Book('Война и Мир', 'Лев Толстой', 1869);
+        let book2 = new Book('И целого мира мало', 'Джеймс Хэдли Чейз', 1869);
+
+        console.log(book1.getSummary());
+        console.log(book2.getSummary());
+
+        console.log(`Возраст книги "${book1.name}": ${book1.getAge()} лет.`);
+        console.log(`Возраст книги "${book2.name}": ${book2.getAge()} лет.`);
+
+        console.log(Book.compareYears(book1, book2));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

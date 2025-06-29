@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        class Circle {
+            constructor(area) {
+                this.area = area;
+            }
+
+            getArea() {
+                return Math.PI * this.area**2;
+            }
+
+            getCircumference() {
+                return 2 * Math.PI * this.area**2;
+            }
+        }
+
+        let area = new Circle(5);
+
+        console.log(area.getArea());
+        console.log(area.getCircumference());
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

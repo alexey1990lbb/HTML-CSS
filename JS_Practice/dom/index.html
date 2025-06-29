@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - Create/Remove Elements</title>
+    <script>
+        window.onload = function () {
+            let p = document.createElement("p");
+                p.innerText = "lorem ipsum";
+
+                let p2 = document.createElement("p");
+                p2.innerText = "lorem ipsum 2";
+                    document.getElementById("div1").appendChild(p2); // добавление элемента в конец
+                    document.getElementById("div1").appendChild(p);
+
+                    document.getElementById("div1").removeChild(p2); // удаление элемента
+
+                    let p3 = document.createElement("p");
+                    p3.innerText = "lorem ipsum 3";
+                    document.getElementById("div1").replaceChild(p3, p); // замена элемента (новый, старый)
+
+                    p3.onclick = function () { // меняет фон у строки div
+                        p3.style.backgroundColor = "pink";
+                    };
+
+                    document.querySelector
+        };
+
+    </script>
+
+</head>
+<body>
+<div id="div1">
+    <h1>DOM</h1>
+</div>
+<div id="div2" class="div-style">
+    <h1>DOM</h1>
+</div>
+</body>
+</html>

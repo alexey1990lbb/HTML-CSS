@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events - Task 1</title>
+    <style>
+        #main-block div {
+            display: inline-block;
+            width: 2em;
+            height: 1.5em;
+            margin: 0.1em;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            let mainBlock = document.querySelector("#main-block");
+            let button = document.querySelector("button");
+
+            button.addEventListener("click", clickHandler);
+
+            function clickHandler() {
+                let coloredBlock = document.createElement("div");
+                coloredBlock.style.backgroundColor = getRandomColor();
+                coloredBlock.addEventListener("click", function(event) {
+                    mainBlock.removeChild(coloredBlock);
+                    console.log(event.clientX, event.clientY);
+                    console.log(event.pageX, event.pageY);
+                });
+                mainBlock.appendChild(coloredBlock);
+
+            };
+
+            // button.onclick = function () {
+            //     let coloredBlock = document.createElement("div");
+            //     coloredBlock.style.backgroundColor = getRandomColor();
+            //     mainBlock.appendChild(coloredBlock);
+            // };
+            function getRandomColor() {
+                const red = Math.floor(Math.random() * 255);
+                const blue = Math.floor(Math.random() * 255);
+                const green = Math.floor(Math.random() * 255);
+
+                return `rgb(${red}, ${green}, ${blue})`;
+            }   
+        };
+    </script>
+</head>
+<body>
+<div id="main-block">
+
+</div>
+<button>Add block</button>
+</body>
+</html>

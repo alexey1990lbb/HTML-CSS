@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #main-block div {
+            display: inline-block;
+            width: 2em;
+            height: 1.5em;
+            margin: 0.1em;
+            cursor: pointer;
+        }
+    </style>
+    <title>Task 3</title>
+    <script>
+        window.onload = () => {
+            let coloredText = document.querySelectorAll("#main-block div");
+            let paragraph = document.querySelector("p");
+
+            coloredText.forEach(block => {
+                block.addEventListener("click", () => {
+                    paragraph.style.color = block.style.backgroundColor;
+                })
+            })
+        }
+    </script>
+</head>
+<body>
+    <div id="main-block">
+        <div style="background-color: blue;"></div>
+        <div style="background-color: rgb(153, 12, 123);"></div>
+        <div style="background-color: rgb(22, 192, 59);"></div>
+        <div style="background-color: rgb(218, 109, 8);"></div>
+        <div style="background-color: rgb(241, 51, 51);"></div>
+        <div style="background-color: rgb(11, 218, 233);"></div>
+        <div style="background-color: rgb(231, 198, 11);"></div>
+        <div style="background-color: rgb(12, 107, 25);"></div>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis perferendis dicta laboriosam dignissimos, quas laudantium, quo nobis dolorum, explicabo sequi esse. Libero quisquam nesciunt quam harum ad asperiores obcaecati expedita. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Molestias vitae explicabo ab blanditiis aspernatur suscipit? Laboriosam repellat rerum, dicta eveniet tenetur saepe dolor necessitatibus, explicabo iste vero hic. Facere, illo?</p>
+</body>
+</html>
