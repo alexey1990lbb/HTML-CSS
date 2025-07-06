@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <style>
+        #flex {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <form id="myForm">
+        <div id="flex">
+            <div>
+                <label for="fname">Firstname:</label><br>
+                <input type="text" name="fname" id="fname" required>
+            </div>
+            <div>
+                <label for="lname">Lastname:</label><br>
+                <input type="text" name="lname" id="lname" required>
+            </div>
+        </div>
+
+        <div id="flex">
+            <div>
+                <label for="bday">Birthday:</label><br>
+                <input type="date" name="bday" id="bday" required>
+            </div>
+            <div>
+                <span>Gender:</span><br>
+                <label style="margin-right: 20px;"><input type="radio" name="gender" value="Мужской" required> Male</label>
+                <label><input type="radio" name="gender" value="Женский"> Female</label>
+            </div>
+        </div>
+
+        <div id="flex">
+            <div>
+                <label for="country">Country:</label><br>
+                <select name="country" id="country" required>
+                    <option value="Россия">Россия</option>
+                </select>
+            </div>
+            <div>
+                <label for="city">City:</label><br>
+                <select name="city" id="city" required>
+                    <option value="Новосибирск">Новосибирск</option>
+                </select>
+            </div>
+        </div>
+
+        <div>
+            <span>Skills:</span><br>
+            <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+            <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+            <label><input type="checkbox" name="skills" value="JS"> JS</label>
+            <label><input type="checkbox" name="skills" value="PHP"> PHP</label>
+            <label><input type="checkbox" name="skills" value="C++"> C++</label>
+            <label><input type="checkbox" name="skills" value="Java"> Java</label>
+            <label><input type="checkbox" name="skills" value="C#"> C#</label>
+        </div>
+
+        <br>
+        <button type="submit" style="width: 30em;">Save</button>
+    </form>
+
+    <script>
+document.getElementById('myForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  // Сохраняем простые поля
+  sessionStorage.setItem('fname', this.fname.value);
+  sessionStorage.setItem('lname', this.lname.value);
+  sessionStorage.setItem('bday', this.bday.value);
+  sessionStorage.setItem('gender', this.gender.value);
+  sessionStorage.setItem('country', this.country.value);
+  sessionStorage.setItem('city', this.city.value);
+
+  // Для чекбоксов навыков — собираем выбранные и сохраняем как строку через запятую
+  const skills = [];
+  this.querySelectorAll('input[name="skills"]:checked').forEach(chk => {
+    skills.push(chk.value);
+  });
+  sessionStorage.setItem('skills', skills.join(', '));
+
+  // Переходим на страницу с результатом
+  window.location.href = 'result.html';
+});
+</script>
+</body>
+</html>

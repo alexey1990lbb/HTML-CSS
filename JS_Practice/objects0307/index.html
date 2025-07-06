@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax, Json</title>
+    <script>
+        //Строка в объект через JSON
+        const movie = '{"title":"Форсаж", "year":2010, "inProduction":false, "characters":[{"name":"Доминик Торетто", "actor":"Вин Дизель"}, {"name":"Мия", "actor":"Зина"}]}';
+        const movieObject = JSON.parse(movie);
+        console.log(movieObject);
+
+        //Объект в строку через JSON
+        const movie2 = {title: "Шрэк", year:2004, inProduction: false, characters:["Шрэк", "Фиона", "Осел"]};
+        const movie2JsonString = JSON.stringify(movie2);
+        console.log(movie2JsonString);
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

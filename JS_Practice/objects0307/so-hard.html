@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Films</title>
+    <script>
+        //'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a'
+        window.onload = () => {
+            document.querySelector("form").addEventListener("submit", search);
+            function search(event) {
+                // const req = new XMLHttpRequest();
+                // req.onload = function() {
+                //     const searchResult = this.responseText;
+                //     console.log(searchResult);
+                //     fillFilmsBlock(searchResult);
+                // };
+                // let url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=%D0%A2%D0%B5%D0%BC%D0%BD%D1%8B%D0%B9%20%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C&page=1`;
+                // req.setRequestHeader('X-API-KEY', 'e1b7319f-a01c-4664-9570-f77785734b3a');
+                // req.open("GET", url);
+                // req.send();
+                const keyword = document.querySelector("#title").value;
+                fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=${keyword}&page=1`, {
+                method: 'GET',
+                headers: {
+                'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a',
+                'Content-Type': 'application/json',
+    }   ,
+    })
+                .then(res => res.json())
+                .then(json => console.log(json))
+                .catch(err => console.log(err))
+            event.preventDefault();
+            }
+            function fillFilmsBlock(searchResult) {
+                const films = JSON.parse(searchResult);
+                console.log(films);
+            }
+        };
+    </script>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>Search:</h2>
+            <form>
+                <div>
+                    <label>Title:
+                        <input type="text" name="title" id="title">
+                    </label>
+                </div>
+                <div>
+                    <label>Type:
+                        <select name="type" id="type" style="width: 13.1em;">
+                        <option value="movie">Movie</option>
+                        <option value="series">TV series</option>
+                        </select>
+                    </label>
+                </div>
+                <input type="submit" value="Search" style="width: 16.1em;">
+            </form>
+        </section>
+        <section id="films"></section>
+    </main>
+</body>
+</html>

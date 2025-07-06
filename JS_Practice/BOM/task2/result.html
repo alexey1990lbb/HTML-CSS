@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>Результаты формы</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 60%;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #333;
+            padding: 8px 12px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <h3>Result</h3>
+    <table>
+        <tbody id="result-table-body"></tbody>
+    </table>
+
+    <script>
+const keys = ['fname', 'lname', 'bday', 'gender', 'country', 'city', 'skills'];
+const labels = {
+  fname: 'Firstname',
+  lname: 'Lastname',
+  bday: 'Birthday',
+  gender: 'Gender',
+  country: 'County',
+  city: 'City',
+  skills: 'Skills'
+};
+const tbody = document.getElementById('result-table-body');
+
+keys.forEach(key => {
+  const value = sessionStorage.getItem(key);
+  if (value) {
+    const row = document.createElement('tr');
+    row.innerHTML = `<td>${labels[key]}</td><td>${value}</td>`;
+    tbody.appendChild(row);
+  }
+});
+</script>
+</body>
+</html>

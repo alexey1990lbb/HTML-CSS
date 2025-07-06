@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            document.querySelector("form").addEventListener("submit", submitHandler);
+            function submitHandler(event) {
+                event.preventDefault();
+                console.log(event);
+            }
+        };
+
+        let myWindow;
+function myFunction() {
+  myWindow = window.open("", "MsgWindow", "width=200,height=100");
+  myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+}
+function closeWindow() {
+    myWindow.close();
+}
+
+function moveWindow() {
+    myWindow.moveTo(100, 50);
+}
+
+function showURL() {
+    console.log(window.location.href);
+}
+
+function loadNewHTML() {
+    window.location.assign("new.html");
+}
+
+function forwad() {
+    history.forward();
+}
+
+function back() {
+    history.back();
+}
+</script>
+</head>
+<body>
+    <form>
+        <input type="text" name="username" id="username">
+        <input type="submit" value="Save">
+    </form>
+    <p>Click the button to open a new window called "MsgWindow" with some text.</p>
+
+    <button onclick="myFunction()">Try it</button>
+    <button onclick="moveWindow()">Move</button>
+    <button onclick="closeWindow()">Close Window</button>
+    <button onclick="showURL()">Current URL</button>
+    <button onclick="loadNewHTML()">Load New HTML</button>
+    <p>
+        <span onclick="forwad()">Forward</span>
+        <span onclick="back()">Back</span>
+    </p>
+</body>
+</html>
