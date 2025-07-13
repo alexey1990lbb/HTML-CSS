@@ -2,42 +2,123 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=400, initial-scale=1.0">
     <title>Search Films</title>
-    <script>
-        //'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a'
-        window.onload = () => {
-            document.querySelector("form").addEventListener("submit", search);
-            function search(event) {
-                // const req = new XMLHttpRequest();
-                // req.onload = function() {
-                //     const searchResult = this.responseText;
-                //     console.log(searchResult);
-                //     fillFilmsBlock(searchResult);
-                // };
-                // let url = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=%D0%A2%D0%B5%D0%BC%D0%BD%D1%8B%D0%B9%20%D1%80%D1%8B%D1%86%D0%B0%D1%80%D1%8C&page=1`;
-                // req.setRequestHeader('X-API-KEY', 'e1b7319f-a01c-4664-9570-f77785734b3a');
-                // req.open("GET", url);
-                // req.send();
-                const keyword = document.querySelector("#title").value;
-                fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=${keyword}&page=1`, {
-                method: 'GET',
-                headers: {
-                'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a',
-                'Content-Type': 'application/json',
-    }   ,
-    })
-                .then(res => res.json())
-                .then(json => console.log(json))
-                .catch(err => console.log(err))
-            event.preventDefault();
-            }
-            function fillFilmsBlock(searchResult) {
-                const films = JSON.parse(searchResult);
-                console.log(films);
-            }
-        };
-    </script>
+    <style>
+        body {
+            font-family: Tahoma, Arial, sans-serif;
+            background: #f8edea;
+            margin: 0;
+            padding: 0 0 40px 0;
+        }
+        main {
+            max-width: 950px;
+            margin: 30px auto 0 auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px #ddd;
+            padding: 30px;
+        }
+        h2 {
+            margin-top: 0;
+        }
+        #films {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px 0 20px 0;
+        }
+        .film {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            padding: 10px;
+            background: #f8edea;
+            min-width: 320px;
+            max-width: 350px;
+        }
+        .film img {
+            width: 100px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 15px;
+            background: #fff;
+        }
+        .film-info {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        .film-type {
+            font-size: 0.95em;
+            color: #555;
+            margin-bottom: 4px;
+        }
+        .film-title {
+            font-weight: bold;
+            font-size: 1.05em;
+            margin-bottom: 8px;
+        }
+        .film-year {
+            margin-bottom: 8px;
+        }
+        .film-details-btn {
+            margin-top: auto;
+            padding: 5px 15px;
+            border-radius: 4px;
+            border: 1px solid #888;
+            background: #eee;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        .film-details-btn:hover {
+            background: #ddd;
+        }
+        #film-details {
+            margin-top: 28px;
+        }
+        .details-container {
+            display: flex;
+            gap: 30px;
+            background: #f8edea;
+            border-radius: 8px;
+            padding: 18px;
+            align-items: flex-start;
+            box-shadow: 0 2px 8px #eee;
+        }
+        .details-container img {
+            width: 220px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px #ccc;
+        }
+        .details-table {
+            font-size: 1em;
+            border-collapse: collapse;
+        }
+        .details-table td {
+            padding: 4px 10px 4px 0;
+            vertical-align: top;
+        }
+        .details-table tr td:first-child {
+            font-weight: bold;
+            color: #444;
+            width: 90px;
+        }
+        .details-title {
+            font-size: 1.1em;
+            margin-bottom: 10px;
+            font-weight: bold;
+            text-align: left;
+        }
+        @media (max-width: 700px) {
+            main {padding: 10px;}
+            .details-container {flex-direction: column; align-items: stretch;}
+            .details-container img {width: 100%; max-width: 300px;}
+        }
+    </style>
 </head>
 <body>
     <main>
@@ -61,6 +142,99 @@
             </form>
         </section>
         <section id="films"></section>
+        <section id="film-details"></section>
     </main>
+    <script>
+        window.onload = () => {
+            document.querySelector("form").addEventListener("submit", search);
+
+            function search(event) {
+                event.preventDefault();
+                const keyword = document.querySelector("#title").value;
+                const type = document.querySelector("#type").value;
+
+                let apiType = "ALL";
+                if (type === "movie") apiType = "FILM";
+                if (type === "series") apiType = "TV_SERIES";
+
+                fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=${apiType}&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=${keyword}&page=1`, {
+                    method: 'GET',
+                    headers: {
+                        'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(res => res.json())
+                .then(json => fillFilmsBlock(json))
+                .catch(err => console.log(err));
+            }
+
+            function fillFilmsBlock(searchResult) {
+                const filmsBlock = document.getElementById("films");
+                filmsBlock.innerHTML = "";
+                document.getElementById("film-details").innerHTML = "";
+
+                if (!searchResult.items || searchResult.items.length === 0) {
+                    filmsBlock.innerHTML = "<p>Фильмы не найдены.</p>";
+                    return;
+                }
+
+                const filmsToShow = searchResult.items.slice(0, 5);
+
+                filmsToShow.forEach(film => {
+                    const filmDiv = document.createElement("div");
+                    filmDiv.className = "film";
+                    filmDiv.innerHTML = `
+                        <img src="${film.posterUrlPreview}" alt="${film.nameRu || film.nameEn}">
+                        <div class="film-info">
+                            <div class="film-type">${film.type === "FILM" ? "movie" : film.type === "TV_SERIES" ? "series" : "unknown"}</div>
+                            <div class="film-title">${film.nameRu || film.nameEn}</div>
+                            <div class="film-year">${film.year || "неизвестно"}</div>
+                            <button class="film-details-btn">Details</button>
+                        </div>
+                    `;
+                    filmDiv.querySelector('.film-details-btn').onclick = () => showFilmDetails(film.kinopoiskId);
+                    filmsBlock.appendChild(filmDiv);
+                });
+            }
+
+            function showFilmDetails(filmId) {
+                fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${filmId}`, {
+                    method: 'GET',
+                    headers: {
+                        'X-API-KEY': 'e1b7319f-a01c-4664-9570-f77785734b3a',
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(res => res.json())
+                .then(film => renderFilmDetails(film))
+                .catch(err => console.log(err));
+            }
+
+            function renderFilmDetails(film) {
+                const detailsBlock = document.getElementById("film-details");
+                detailsBlock.innerHTML = `
+                    <div class="details-container">
+                        <div>
+                            <img src="${film.posterUrlPreview || film.posterUrl}" alt="${film.nameRu || film.nameEn}">
+                        </div>
+                        <div>
+                            <div class="details-title">Film info:</div>
+                            <table class="details-table">
+                                <tr><td>Title:</td><td>${film.nameRu || film.nameEn || "-"}</td></tr>
+                                <tr><td>Released:</td><td>${film.year || "-"}</td></tr>
+                                <tr><td>Genre:</td><td>${film.genres && film.genres.length ? film.genres.map(g => g.genre).join(', ') : "-"}</td></tr>
+                                <tr><td>Country:</td><td>${film.countries && film.countries.length ? film.countries.map(c => c.country).join(', ') : "-"}</td></tr>
+                                <tr><td>Director:</td><td>${film.director || "-"}</td></tr>
+                                <tr><td>Writer:</td><td>${film.writer || "-"}</td></tr>
+                                <tr><td>Actors:</td><td>${film.actors || "-"}</td></tr>
+                                <tr><td>Awards:</td><td>${film.awards || "-"}</td></tr>
+                            </table>
+                        </div>
+                    </div>
+                `;
+            }
+        };
+    </script>
 </body>
 </html>
